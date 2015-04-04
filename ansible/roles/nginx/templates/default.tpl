@@ -1,8 +1,8 @@
 server {
     listen  80;
 
-    root {{ doc_root }};
-    index index.html index.php;
+    root {{ doc_root }}/public;
+    index index.php;
 
     server_name {{ servername }};
 
