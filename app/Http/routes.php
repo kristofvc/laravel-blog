@@ -13,9 +13,14 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('contact',
+    ['as' => 'contact', 'uses' => 'Contact@create']);
+Route::post('contact',
+    ['as' => 'contact_store', 'uses' => 'Contact@store']);
+
+/*Route::get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
-]);
+]);*/
