@@ -38,14 +38,14 @@ This is my first project with Laravel. Steps will be written below.
 
 ```php
     Route::get('contact', 
-      ['as' => 'contact', 'uses' => 'AboutController@create']);
+      ['as' => 'contact', 'uses' => 'Contact@create']);
     Route::post('contact', 
-      ['as' => 'contact_store', 'uses' => 'AboutController@store']);
+      ['as' => 'contact_store', 'uses' => 'Contact@store']);
 ```
 
 - Add a template to `resources/views/contact/create.blade.php` from the file delivered with this project
 
-- Add some methodes to your Contact-controller:
+- Add some methods to your Contact-controller:
 
 ```php
     public function create()
@@ -73,3 +73,33 @@ This is my first project with Laravel. Steps will be written below.
       ];
     }
 ```
+
+## Starting the blog by adding post with title and body
+
+- Start by executing same steps as for the contact-form
+- Run `php artisan make:model BlogPost`
+- Add fields to the created BlogPost
+- Add a fillable array to your model
+
+```php
+    protected $fillable = ['title', 'body'];
+``` 
+
+- Change the database config in `config/database.php`
+
+```php 
+        'mysql' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_HOST', 'localhost'),
+			'database'  => env('DB_DATABASE', 'laravelblog'),
+			'username'  => env('DB_USERNAME', 'root'),
+			'password'  => env('DB_PASSWORD', 'root'),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => false,
+		],    
+``` 
+
+- Add fields to the `CreateBlogPostsTable` class
+- Run `php artisan migrate` 

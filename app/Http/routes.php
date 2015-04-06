@@ -18,6 +18,11 @@ Route::get('contact',
 Route::post('contact',
     ['as' => 'contact_store', 'uses' => 'Contact@store']);
 
+Route::get('admin/blog',
+    ['as' => 'blogadmin', 'uses' => 'BlogAdmin@create']);
+Route::post('admin/blog',
+    ['as' => 'blogadmin_store', 'uses' => 'BlogAdmin@store']);
+
 /*Route::get('home', 'HomeController@index');
 
 Route::controllers([
