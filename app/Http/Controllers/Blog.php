@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\BlogPost;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,9 @@ class Blog extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$blogPosts = BlogPost::all();
+
+        return view('blog.index')->with('posts', $blogPosts);
 	}
 
 	/**

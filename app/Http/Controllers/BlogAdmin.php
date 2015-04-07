@@ -27,8 +27,8 @@ class BlogAdmin extends Controller
 	 */
 	public function store(Request $request)
 	{
-        $input = Input::all();
-        BlogPost::create($input);
+        $input = \Input::all();
+        $blogPost = BlogPost::create($input);
 
         return \Redirect::route('blogadmin')
             ->with('message', 'Post created!');

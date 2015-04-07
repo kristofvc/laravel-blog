@@ -4,11 +4,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogPost extends Model
 {
+    protected $guarded = ['id'];
     protected $fillable = ['title', 'body'];
 
-    private $title;
+    protected $id;
 
-    private $body;
+    protected $title;
+
+    protected $body;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return mixed

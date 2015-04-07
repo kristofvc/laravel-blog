@@ -18,6 +18,9 @@ Route::get('contact',
 Route::post('contact',
     ['as' => 'contact_store', 'uses' => 'Contact@store']);
 
+Route::get('blog',
+    ['as' => 'blog', 'uses' => 'Blog@index']);
+
 Route::get('admin/blog',
     ['as' => 'blogadmin', 'uses' => 'BlogAdmin@create']);
 Route::post('admin/blog',
